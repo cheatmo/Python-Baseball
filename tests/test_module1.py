@@ -14,7 +14,7 @@ def test_import_pandas_module1():
 
 @pytest.mark.test_python_file_management_module1
 def test_python_file_management_module1():
-    assert 'game_files:glob:glob:os:path:join:os:getcwd:games:*.EVE' in get_assignments(data), 'Do you have a `glob.glob()` function call with the correct arguments?'
+    assert 'game_files:glob:glob:os:path:join:os:getcwd:games:*.EVE' in get_assignments(data).replace('None:',''), 'Do you have a `glob.glob()` function call with the correct arguments?'
 
 @pytest.mark.test_sorting_file_names_module1
 def test_sorting_file_names_module1():
