@@ -14,11 +14,11 @@ events = events.unstack().fillna(0).reset_index()
 
 events.columns = events.columns.droplevel()
 events.columns = ['year', 'game_id', 'team', 'BB', 'E', 'H', 'HBP', 'HR', 'ROE', 'SO']
-events = events.rename_axis(None, axis=1)
+events = events.rename_axis(None, axis='columns')
 
 events_plus_pa = pd.merge(events, pa, how='outer', left_on=['year', 'game_id', 'team'], right_on=['year', 'game_id', 'team'])
 
-defense = pd.merge(events_plus_pa, info, how = 'outer', left_on=['year', 'game_id', 'team'],  right_on=['year', 'game_id', 'team'])
+defense = pd.merge(events_plus_pa, info)
 defense.loc[:,'DER'] = 1 - ((defense.H + defense.ROE)/(defense.PA - defense.BB - defense.SO - defense.HBP - defense.HR))
 defense.loc[:, 'year'] = pd.to_numeric(defense.loc[:,'year'])
 
