@@ -10,5 +10,5 @@ attendance.plot(x='year', y='attendance', figsize=(15,7), kind='bar')
 plt.xlabel('Year')
 plt.ylabel('Attendance')
 
-plt.axhline(attendance['attendance'].mean(), label='Mean Line', linestyle='dashed', color='green')
+plt.axhline(y=attendance['attendance'].mean(), label='Mean Line', linestyle='dashed', color='green')
 plt.show()
